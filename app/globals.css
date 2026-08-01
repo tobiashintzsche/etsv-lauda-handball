@@ -29,6 +29,7 @@
   /* Schriften — inline zwingend, damit die next/font-Variablen zur Laufzeit
      aufgeloest werden. `condensed` traegt ALLE Headlines (immer kursiv). */
   --font-condensed: var(--font-roboto-condensed, ui-sans-serif, system-ui, sans-serif);
+  --font-anton: var(--font-anton, ui-sans-serif, system-ui, sans-serif);
   --font-sans: var(--font-roboto, ui-sans-serif, system-ui, sans-serif);
   --font-ubuntu: var(--font-ubuntu, ui-sans-serif, system-ui, sans-serif);
 

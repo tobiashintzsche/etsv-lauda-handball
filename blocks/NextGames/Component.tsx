@@ -1,109 +1,73 @@
-import type { Game, Team } from "@payload-types";
+import type { Game } from "@payload-types";
 
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { SectionShell } from "@/components/ui/SectionShell";
-import type { SectionBackground } from "@/fields/section";
-import { formatDate, formatTime } from "@/lib/format";
 import { strings } from "@/lib/strings";
-import { isPopulated } from "@/lib/utils";
+import { CONTAINER } from "@/lib/utils";
+
+import { CourtBackdrop } from "./CourtBackdrop";
+import { FixtureGroup } from "./FixtureGroup";
 
 type NextGamesSectionProps = {
   headline: string;
   subline?: string | null;
   home: Game[];
   away: Game[];
-  background?: SectionBackground | string | null;
   anchorId?: string | null;
 };
 
-/** Shown when neither column has a single fixture — June to September, every year. */
+/** Shown when neither group has a single fixture — June to September, every year. */
 const SEASON_BREAK = "Saisonpause — aktuell keine angesetzten Spiele";
 
-const TIME_ZONE = "Europe/Berlin";
-
-/** "Samstag 20.09.2025 16:00 Uhr" — the fixture list wording from the design. */
-function formatKickoff(value: string): string {
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return "";
-
-  const weekday = new Intl.DateTimeFormat("de-DE", {
-    weekday: "long",
-    timeZone: TIME_ZONE,
-  }).format(date);
-
-  return `${weekday} ${formatDate(date)} ${formatTime(date)} Uhr`;
-}
-
-/** "HERREN VS. SG GUNDELSHEIM" — our team always comes first, home or away. */
-function fixtureTitle(game: Game): string {
-  const teamName = isPopulated<Team>(game.team) ? game.team.name : "";
-  return teamName ? `${teamName} vs. ${game.opponent}` : game.opponent;
-}
-
-function FixtureList({ games, empty }: { games: Game[]; empty: string }) {
-  if (games.length === 0) {
-    return <p className="text-muted text-[16px] leading-[1.1]">{empty}</p>;
-  }
-
-  return (
-    <ul className="flex flex-col gap-4">
-      {games.map((game) => (
-        <li key={game.id} className="flex flex-col gap-3">
-          <p className="text-fg-primary text-[16px] leading-[1.1] font-semibold uppercase">
-            {fixtureTitle(game)}
-          </p>
-          <div className="flex flex-col gap-0.5 text-[16px] leading-[1.1]">
-            <time dateTime={game.date}>{formatKickoff(game.date)}</time>
-            {game.venue ? <span>{game.venue}</span> : null}
-          </div>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
 /**
- * „Nächste Spiele“ in two columns (design 3.6).
+ * „Naechste Spiele“ in the look of the Instagram matchday post
+ * (Figma spieltagspost, screens 1–4).
  *
- * Purely presentational — the fixtures are loaded in `Server.tsx`. Mobile
- * stacks the two columns; the design does not scroll them sideways because a
- * fixture is text, not a card.
+ * Web adaptation of the post:
+ *   · Two columns from `md` up (spec §10), stacked below. At 1024px container
+ *     width each group gets ~490px — that is roughly the mobile column, which
+ *     is why the desktop type sizes sit close to the mobile ones instead of
+ *     doubling them.
+ *   · Type keeps the spec's ratios rather than its absolute sizes: kickoff 2×
+ *     the fixture line, badge 2.25×. The kickoff stays flush right in its own
+ *     column and remains the anchor of the row.
+ *   · The section always carries the post surface (navy plus court lines), so
+ *     it ignores the block's `sectionBackground` — white or light-texture would
+ *     leave white fixture rows on a white band. Same exemption the hero slider
+ *     already has from the „blocks never set their own background“ rule.
+ *
+ * Purely presentational — the fixtures are loaded in `Server.tsx`.
  */
 export function NextGamesSection({
   headline,
   subline,
   home,
   away,
-  background,
   anchorId,
 }: NextGamesSectionProps) {
   const isEmpty = home.length === 0 && away.length === 0;
 
   return (
-    <SectionShell background={background} anchorId={anchorId}>
-      <SectionHeader headline={headline} subline={subline} />
+    <SectionShell
+      background="primary"
+      anchorId={anchorId}
+      fullBleed
+      className="relative isolate overflow-hidden"
+    >
+      <CourtBackdrop />
 
-      <hr className="border-fg-primary mt-3 border-t-2" />
+      <div className={CONTAINER}>
+        <SectionHeader headline={headline} subline={subline} />
 
-      {isEmpty ? (
-        <p className="text-muted mt-6 text-[14px] leading-[1.5] md:text-[16px]">{SEASON_BREAK}</p>
-      ) : (
-        <div className="mt-6 flex flex-col gap-8 md:flex-row md:gap-4">
-          <div className="flex flex-1 flex-col gap-4">
-            <h3 className="label-italic text-secondary text-[18px] uppercase">
-              {strings.games.home}
-            </h3>
-            <FixtureList games={home} empty={strings.games.emptyHome} />
+        {isEmpty ? (
+          <p className="text-muted mt-6 text-[14px] leading-[1.5] md:text-[16px]">{SEASON_BREAK}</p>
+        ) : (
+          <div className="mt-6 grid gap-8 md:mt-8 md:grid-cols-2 md:gap-10">
+            <FixtureGroup label={strings.games.home} games={home} empty={strings.games.emptyHome} />
+            <FixtureGroup label={strings.games.away} games={away} empty={strings.games.emptyAway} />
           </div>
-
-          <div className="flex flex-1 flex-col gap-4">
-            <h3 className="label-italic text-secondary text-[18px] uppercase">
-              {strings.games.away}
-            </h3>
-            <FixtureList games={away} empty={strings.games.emptyAway} />
-          </div>
-        </div>
-      )}
+        )}
+      </div>
     </SectionShell>
   );
 }

@@ -28,7 +28,8 @@
     "migrate": "cross-env NODE_OPTIONS=--no-deprecation payload migrate",
     "seed:admin": "node --env-file=.env --import=tsx/esm scripts/seed-admin.ts",
     "seed:baseline": "node --env-file=.env --import=tsx/esm scripts/seed-baseline.ts",
-    "seed:demo": "node --env-file=.env --import=tsx/esm scripts/seed-demo.ts"
+    "seed:demo": "node --env-file=.env --import=tsx/esm scripts/seed-demo.ts",
+    "posts:generate": "node --env-file=.env --import=tsx/esm scripts/generate-matchday-posts.ts"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.87.0",

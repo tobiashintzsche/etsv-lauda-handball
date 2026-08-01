@@ -7,7 +7,9 @@ import { RefreshRouteOnSave } from "@/components/RefreshRouteOnSave";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { SITE_URL } from "@/lib/env";
+import { anton } from "@/lib/fonts/anton";
 import { getSiteSettings } from "@/lib/globals";
+import { indexingAllowed } from "@/lib/seo";
 import { strings } from "@/lib/strings";
 import { sportsOrganization } from "@/lib/structured-data";
 import { isMedia } from "@/lib/utils";
@@ -44,6 +46,9 @@ const ubuntu = Ubuntu({
   variable: "--font-ubuntu",
 });
 
+// Anton (Spieltagspost-Design) lives in lib/fonts/anton.ts — the matchday
+// post render route loads it too, so the definition is shared.
+
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSettings();
   const favicon = isMedia(settings.logos?.favicon) ? settings.logos.favicon.url : null;
@@ -63,6 +68,11 @@ export async function generateMetadata(): Promise<Metadata> {
       url: SITE_URL,
     },
     ...(favicon && { icons: { icon: favicon } }),
+    // Die dritte Ebene des Sichtbarkeits-Schalters, neben robots.txt und
+    // Sitemap: nur das Meta-Tag holt bereits indexierte Adressen wieder aus
+    // Google raus. Routen erben es, solange sie kein eigenes `robots` setzen —
+    // und die, die eines setzen, sperren ohnehin nur zusaetzlich.
+    ...(!indexingAllowed(settings) && { robots: { index: false, follow: false } }),
   };
 }
 
@@ -70,7 +80,10 @@ export default async function FrontendLayout({ children }: { children: React.Rea
   const [settings, { isEnabled: isDraft }] = await Promise.all([getSiteSettings(), draftMode()]);
 
   return (
-    <html lang="de" className={`${robotoCondensed.variable} ${roboto.variable} ${ubuntu.variable}`}>
+    <html
+      lang="de"
+      className={`${robotoCondensed.variable} ${roboto.variable} ${ubuntu.variable} ${anton.variable}`}
+    >
       <body className="bg-primary text-fg-primary min-h-dvh antialiased">
         <JsonLd data={sportsOrganization(settings)} />
 

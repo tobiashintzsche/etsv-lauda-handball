@@ -22,13 +22,14 @@ export async function NextGamesServer({ block }: { block: NextGamesBlock }) {
     maxPerColumn: block.maxPerColumn ?? 3,
   });
 
+  // `sectionBackground` is deliberately not forwarded: the matchday-post look
+  // brings its own surface (see `Component.tsx`).
   return (
     <NextGamesSection
       headline={block.headline}
       subline={block.subline}
       home={home}
       away={away}
-      background={block.sectionBackground}
       anchorId={block.anchorId}
     />
   );

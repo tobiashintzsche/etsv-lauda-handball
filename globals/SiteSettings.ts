@@ -171,6 +171,27 @@ export const SiteSettings: GlobalConfig = {
           ],
         },
         {
+          label: "Sichtbarkeit",
+          fields: [
+            {
+              name: "isIndexable",
+              type: "checkbox",
+              defaultValue: true,
+              label: "Website von Suchmaschinen finden lassen",
+              admin: {
+                description:
+                  "Ausgeschaltet verschwindet die GANZE Website aus Google und Co.: die " +
+                  "robots.txt sperrt alle Adressen, die Sitemap bleibt leer und jede Seite " +
+                  "traegt den Vermerk „noindex“. Gedacht fuer die Zeit vor dem Start oder " +
+                  "einen groesseren Umbau — danach wieder einschalten. Suchmaschinen " +
+                  "brauchen in beide Richtungen einige Tage, bis sie die Aenderung " +
+                  "uebernehmen. Der Schalter aendert nichts an der Erreichbarkeit: Besucher " +
+                  "mit dem Link kommen weiterhin auf jede Seite.",
+              },
+            },
+          ],
+        },
+        {
           label: "Logos",
           fields: [
             {

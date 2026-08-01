@@ -122,6 +122,27 @@ Routenspezifische Komponenten mit `_`-Prefix kolokalisieren (`_components/`).
 - `admin.group`: „Inhalte" (Pages, News, NewsCategories), „Verein" (Teams, Players,
   Games, Sponsors), „System" (Users, Media), „Einstellungen" (Globals, Redirects).
 
+### Sichtbarkeit
+
+Der Schalter „Website von Suchmaschinen finden lassen" (Vereinsdaten →
+Sichtbarkeit, Feld `isIndexable`) nimmt die **ganze** Seite aus dem Index. Er
+wirkt an drei Stellen, weil keine allein genuegt — wer eine davon anfasst, muss
+die anderen mitdenken:
+
+| Ebene      | Datei                             | Verhalten bei „aus"                |
+| ---------- | --------------------------------- | ---------------------------------- |
+| robots.txt | `app/robots.ts` (`force-dynamic`) | `Disallow: /`, sofort              |
+| Sitemap    | `app/sitemap.ts`                  | leer, mit bis zu 1 h Verzug        |
+| Meta-Tag   | `app/(frontend)/layout.tsx`       | `robots: noindex,nofollow`, sofort |
+
+Ausgewertet wird der Schalter ausschliesslich ueber `lib/seo.ts`. Nur ein
+explizites `false` sperrt — ein fehlender Wert gilt als indexierbar, damit eine
+Live-Seite nie versehentlich aus Google faellt.
+
+Davon unabhaengig: `meta.noindex` pro Dokument (SEO-Plugin) nimmt eine einzelne
+Seite aus Sitemap und Suche, und `app/robots.ts` sperrt Preview-Deployments
+ohnehin komplett (`VERCEL_ENV !== "production"`).
+
 ### Bausteine
 
 Registriert in `blocks/index.ts` (`pageBlocks`), in genau dieser Reihenfolge:

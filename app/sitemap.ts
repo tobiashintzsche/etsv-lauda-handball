@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 
 import { SITE_URL } from "@/lib/env";
 import { ROUTES, newsPath, teamPath } from "@/lib/paths";
+import { isSiteIndexable } from "@/lib/seo";
 import { type SitemapEntry, getIndexableEntries } from "@/lib/sitemap-entries";
 
 /**
@@ -40,8 +41,15 @@ function entry(path: string, item: SitemapEntry | undefined, priority: number) {
  *
  * Auf `noindex` gesetzte Dokumente filtert bereits der Loader heraus — sie
  * bleiben erreichbar, tauchen hier aber nicht auf.
+ *
+ * Ist die Sichtbarkeit in den Vereinsdaten abgeschaltet, bleibt die Sitemap
+ * leer. Dass sie das wegen `revalidate` bis zu eine Stunde spaeter tut, ist
+ * unkritisch: robots.txt und das `noindex`-Meta-Tag greifen sofort, und eine
+ * Sitemap, die niemand mehr crawlen darf, liest ohnehin keiner.
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  if (!(await isSiteIndexable())) return [];
+
   const [pages, news, teams] = await Promise.all([
     getIndexableEntries("pages"),
     getIndexableEntries("news"),

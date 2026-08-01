@@ -73,6 +73,7 @@ export interface Config {
     teams: Team;
     players: Player;
     games: Game;
+    matchdayPosts: MatchdayPost;
     sponsors: Sponsor;
     media: Media;
     users: User;
@@ -91,6 +92,7 @@ export interface Config {
     teams: TeamsSelect<false> | TeamsSelect<true>;
     players: PlayersSelect<false> | PlayersSelect<true>;
     games: GamesSelect<false> | GamesSelect<true>;
+    matchdayPosts: MatchdayPostsSelect<false> | MatchdayPostsSelect<true>;
     sponsors: SponsorsSelect<false> | SponsorsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
@@ -948,6 +950,97 @@ export interface Game {
   createdAt: string;
 }
 /**
+ * Vorgeschlagene Instagram-Posts zu den naechsten Spielen. Vorschlag pruefen, Text anpassen, freigeben — das Bild gibt es als PNG zum Herunterladen.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "matchdayPosts".
+ */
+export interface MatchdayPost {
+  id: number;
+  /**
+   * Nur zur Orientierung in dieser Liste, steht nicht im Bild. Die Pipeline schlaegt z.B. „Heimspiele · Sa, 19.09.2026“ vor.
+   */
+  title: string;
+  /**
+   * „Vorschlag“ darf die Pipeline aktualisieren. Sobald du freigibst oder verwirfst, bleibt der Post unveraendert stehen.
+   */
+  status: 'vorschlag' | 'freigegeben' | 'verworfen';
+  /**
+   * Heim und Auswaerts werden getrennt gepostet. „Gemischt“ nur, wenn alle Spiele des Spieltags zusammen auf ein Bild passen.
+   */
+  postType: 'heim' | 'auswaerts' | 'gemischt';
+  /**
+   * Leer lassen — dann steht dort automatisch HEIMSPIEL, AUSWAERTSSPIELE oder SPIELTAG. Fuer Sonderfaelle z.B. „ERGEBNISSE“ eintragen.
+   */
+  badgeText?: string | null;
+  /**
+   * Zeitfenster des Spieltags. Fuellt die Pipeline aus dem ersten und letzten Spiel.
+   */
+  matchday?: {
+    dateFrom?: string | null;
+    dateTo?: string | null;
+  };
+  /**
+   * „Standard“ ist die Liste auf dem dunklen Hintergrund. „Foto“ zeigt EIN Spiel gross auf einem Mannschaftsfoto — gedacht fuer Herren-Heimspiele.
+   */
+  variant: 'standard' | 'bildOverlay';
+  /**
+   * Hochformat oder Querformat. Wird formatfuellend beschnitten.
+   */
+  overlayImage?: (number | null) | Media;
+  /**
+   * Leer lassen — dann steht dort automatisch „HERREN VS SG HEUCHELBERG 3“ aus dem ersten Spiel. Die Uhrzeit kommt ebenfalls aus dem ersten Spiel.
+   */
+  overlayTitle?: string | null;
+  /**
+   * Eine Zeile pro Spiel, von oben nach unten nach Anwurfzeit. Fuenf Zeilen passen auf ein Bild (vier, wenn zwei Ueberschriften noetig sind).
+   */
+  games?:
+    | {
+        /**
+         * Bei Heimspielen unsere Mannschaft.
+         */
+        homeTeam: string;
+        /**
+         * Bei Auswaertsspielen unsere Mannschaft.
+         */
+        awayTeam: string;
+        /**
+         * Bestimmt Reihenfolge und Tagesueberschrift (SAMSTAG, SONNTAG).
+         */
+        date: string;
+        /**
+         * Steht gross rechts in der Zeile: „18:30“, ein Ergebnis „24:25“ oder ein Emoji.
+         */
+        time: string;
+        /**
+         * Nur zur Kontrolle — steht nicht im Bild.
+         */
+        venue?: string | null;
+        /**
+         * Nur zur Kontrolle — steht nicht im Bild.
+         */
+        league?: string | null;
+        /**
+         * Entscheidet, welche der beiden Mannschaften als unsere gilt — und in einem gemischten Post, unter welcher Ueberschrift die Zeile steht.
+         */
+        isOwnHome?: boolean | null;
+        sourceGameId?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Vorschlag der Pipeline. Gerne umschreiben — dieser Text wird spaeter mit dem Bild veroeffentlicht.
+   */
+  caption?: string | null;
+  /**
+   * Technisch: verhindert, dass die Pipeline denselben Post doppelt anlegt. Nicht aendern.
+   */
+  sourceKey?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * Partner und Foerderer des Vereins.
  *
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1171,6 +1264,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'games';
         value: number | Game;
+      } | null)
+    | ({
+        relationTo: 'matchdayPosts';
+        value: number | MatchdayPost;
       } | null)
     | ({
         relationTo: 'sponsors';
@@ -1538,6 +1635,42 @@ export interface GamesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "matchdayPosts_select".
+ */
+export interface MatchdayPostsSelect<T extends boolean = true> {
+  title?: T;
+  status?: T;
+  postType?: T;
+  badgeText?: T;
+  matchday?:
+    | T
+    | {
+        dateFrom?: T;
+        dateTo?: T;
+      };
+  variant?: T;
+  overlayImage?: T;
+  overlayTitle?: T;
+  games?:
+    | T
+    | {
+        homeTeam?: T;
+        awayTeam?: T;
+        date?: T;
+        time?: T;
+        venue?: T;
+        league?: T;
+        isOwnHome?: T;
+        sourceGameId?: T;
+        id?: T;
+      };
+  caption?: T;
+  sourceKey?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "sponsors_select".
  */
 export interface SponsorsSelect<T extends boolean = true> {
@@ -1783,6 +1916,10 @@ export interface SiteSetting {
      */
     clubId?: string | null;
   };
+  /**
+   * Ausgeschaltet verschwindet die GANZE Website aus Google und Co.: die robots.txt sperrt alle Adressen, die Sitemap bleibt leer und jede Seite traegt den Vermerk „noindex“. Gedacht fuer die Zeit vor dem Start oder einen groesseren Umbau — danach wieder einschalten. Suchmaschinen brauchen in beide Richtungen einige Tage, bis sie die Aenderung uebernehmen. Der Schalter aendert nichts an der Erreichbarkeit: Besucher mit dem Link kommen weiterhin auf jede Seite.
+   */
+  isIndexable?: boolean | null;
   /**
    * Alle optional — ohne Angabe verwendet die Website die mitgelieferten Vereinslogos.
    */
@@ -2063,6 +2200,7 @@ export interface SiteSettingsSelect<T extends boolean = true> {
     | {
         clubId?: T;
       };
+  isIndexable?: T;
   logos?:
     | T
     | {

@@ -8,6 +8,7 @@ import { FixedToolbarFeature, LinkFeature, lexicalEditor } from "@payloadcms/ric
 import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
 
 import { Games } from "./collections/Games";
+import { MatchdayPosts } from "./collections/MatchdayPosts";
 import { Media } from "./collections/Media";
 import { News } from "./collections/News";
 import { NewsCategories } from "./collections/NewsCategories";
@@ -45,7 +46,18 @@ export default buildConfig({
   // Bewusst KEINE `localization` — die Website ist einsprachig deutsch.
   // Mehrsprachigkeit liesse sich spaeter per Migration nachruesten.
 
-  collections: [Pages, News, NewsCategories, Teams, Players, Games, Sponsors, Media, Users],
+  collections: [
+    Pages,
+    News,
+    NewsCategories,
+    Teams,
+    Players,
+    Games,
+    MatchdayPosts,
+    Sponsors,
+    Media,
+    Users,
+  ],
   globals: [SiteSettings, Navigation, Footer, HighlightBanner],
 
   db: postgresAdapter({
