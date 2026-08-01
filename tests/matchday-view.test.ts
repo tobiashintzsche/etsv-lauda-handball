@@ -90,7 +90,8 @@ describe("buildPostView — Tages-Gruppen", () => {
 
 describe("buildPostView — Zeileninhalt", () => {
   it("nennt im Heimspiel uns zuerst", () => {
-    const [row] = buildPostView(post({ games: [game("2026-09-19T16:00:00+02:00")] })).groups[0].rows;
+    const [row] = buildPostView(post({ games: [game("2026-09-19T16:00:00+02:00")] })).groups[0]
+      .rows;
     expect(row.team).toBe("MÄNNER");
     expect(row.opponent).toBe("TV HARDHEIM 1895");
   });
@@ -162,9 +163,7 @@ describe("buildPostView — Bild-Overlay", () => {
       post({
         variant: "bildOverlay",
         overlayImageUrl: "/media/team.jpg",
-        games: [
-          game("2026-09-19T18:30:00+02:00", { time: "18:30", awayTeam: "SG Heuchelberg 3" }),
-        ],
+        games: [game("2026-09-19T18:30:00+02:00", { time: "18:30", awayTeam: "SG Heuchelberg 3" })],
       }),
     );
 

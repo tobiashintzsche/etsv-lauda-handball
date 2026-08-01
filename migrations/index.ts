@@ -2,6 +2,7 @@ import * as migration_20260731_221916_initial from './20260731_221916_initial';
 import * as migration_20260801_101212_hero_slider from './20260801_101212_hero_slider';
 import * as migration_20260801_111755_site_indexable from './20260801_111755_site_indexable';
 import * as migration_20260801_112000_matchday_posts from './20260801_112000_matchday_posts';
+import * as migration_20260801_115133_next_games_anchor_only from './20260801_115133_next_games_anchor_only';
 
 export const migrations = [
   {
@@ -22,6 +23,11 @@ export const migrations = [
   {
     up: migration_20260801_112000_matchday_posts.up,
     down: migration_20260801_112000_matchday_posts.down,
-    name: '20260801_112000_matchday_posts'
+    name: '20260801_112000_matchday_posts',
+  },
+  {
+    up: migration_20260801_115133_next_games_anchor_only.up,
+    down: migration_20260801_115133_next_games_anchor_only.down,
+    name: '20260801_115133_next_games_anchor_only'
   },
 ];

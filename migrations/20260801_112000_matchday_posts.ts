@@ -1,4 +1,4 @@
-import { MigrateUpArgs, MigrateDownArgs, sql } from '@payloadcms/db-postgres'
+import { MigrateDownArgs, MigrateUpArgs, sql } from "@payloadcms/db-postgres";
 
 export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   await db.execute(sql`
@@ -50,7 +50,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE INDEX "matchday_posts_updated_at_idx" ON "matchday_posts" USING btree ("updated_at");
   CREATE INDEX "matchday_posts_created_at_idx" ON "matchday_posts" USING btree ("created_at");
   ALTER TABLE "payload_locked_documents_rels" ADD CONSTRAINT "payload_locked_documents_rels_matchday_posts_fk" FOREIGN KEY ("matchday_posts_id") REFERENCES "public"."matchday_posts"("id") ON DELETE cascade ON UPDATE no action;
-  CREATE INDEX "payload_locked_documents_rels_matchday_posts_id_idx" ON "payload_locked_documents_rels" USING btree ("matchday_posts_id");`)
+  CREATE INDEX "payload_locked_documents_rels_matchday_posts_id_idx" ON "payload_locked_documents_rels" USING btree ("matchday_posts_id");`);
 }
 
 export async function down({ db, payload, req }: MigrateDownArgs): Promise<void> {
@@ -65,5 +65,5 @@ export async function down({ db, payload, req }: MigrateDownArgs): Promise<void>
   ALTER TABLE "payload_locked_documents_rels" DROP COLUMN "matchday_posts_id";
   DROP TYPE "public"."enum_matchday_posts_status";
   DROP TYPE "public"."enum_matchday_posts_post_type";
-  DROP TYPE "public"."enum_matchday_posts_variant";`)
+  DROP TYPE "public"."enum_matchday_posts_variant";`);
 }

@@ -19,7 +19,11 @@
  * Alternativ per Env: MATCHDAY_POSTS_DAYS, MATCHDAY_POSTS_FROM.
  */
 import { generateDrafts } from "../lib/matchday-posts/generate";
-import { DEFAULT_WINDOW_DAYS, resolveWindow, runMatchdayPipeline } from "../lib/matchday-posts/pipeline";
+import {
+  DEFAULT_WINDOW_DAYS,
+  resolveWindow,
+  runMatchdayPipeline,
+} from "../lib/matchday-posts/pipeline";
 import { collectFixtures } from "../lib/matchday-posts/source";
 
 const green = (s: string) => `\x1b[32m${s}\x1b[0m`;

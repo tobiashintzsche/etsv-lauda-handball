@@ -34,6 +34,10 @@ pnpm payload generate:importmap  # nach neuen Admin-Komponenten
 pnpm migrate:create <name>       # Migration aus dem Schema-Diff erzeugen
 pnpm migrate                     # Migrationen anwenden
 
+pnpm posts:generate           # Spieltagspost-Vorschlaege erzeugen (Fenster: 14 Tage)
+                              # Flags: --days=90 --from=2026-09-01 --to=… --offline --dry-run
+                              # Env:   MATCHDAY_POSTS_DAYS, MATCHDAY_POSTS_FROM
+
 pnpm seed:admin               # ersten Admin-Account anlegen
 pnpm seed:baseline            # Startseite, News-Kategorien, 6 Mannschaften
 pnpm seed:demo                # redaktionelle Demo-Inhalte (News, Spieler, Spiele,
@@ -191,6 +195,58 @@ Figma-Spezifikation, nicht der Augenmaß-Abgleich am Screenshot.
   `<HandballAttribution />`. Das ist eine Auflage der Datenquelle, keine Option.
 - Die Datenschutzerklaerung braucht einen Hinweis, dass handball.net
   anonymisierte Besucherstatistiken erhebt (Speicherung max. 3 Monate).
+
+## Spieltagsposts (Instagram)
+
+Aus dem Spielplan werden **Post-Vorschlaege** in der Collection `matchdayPosts`
+erzeugt. Die Redaktion prueft, gibt frei oder verwirft; das fertige Bild gibt es
+als PNG in Instagram-Groesse (1080 × 1350). Gestaltung: Figma-Spec
+`spieltagspost-spec.md`, Schrift **Anton** (`lib/fonts/anton.ts`), Hintergrund
+`public/brand/spieltagspost/bg-plate-1080x1350.png`.
+
+```
+lib/matchday-posts/design.ts      alle px-Werte und Farben des Posts (eine Quelle)
+lib/matchday-posts/datetime.ts    Kalenderlogik, immer Europe/Berlin
+lib/matchday-posts/generate.ts    reine Kernlogik: Clustern, Splitten, sourceKey
+lib/matchday-posts/view-model.ts  Dokument → Zeilen, Gruppen, Farb-Alternanz
+lib/matchday-posts/source.ts      Spiele-Kaskade (handball.net → games-Collection)
+lib/matchday-posts/sync.ts        Schreibregeln (anlegen / aktualisieren / schuetzen)
+lib/matchday-posts/pipeline.ts    alles zusammen — Skript und Endpoint teilen sie
+app/(frontend)/spieltagspost/     Uebersicht + Ansicht (`?raw=1` = nur die Flaeche)
+app/api/matchday-post/[id]/image  PNG-Export via next/og
+```
+
+Regeln, die im Code stehen und nicht neu erfunden werden duerfen:
+
+- **Spieltag** = Freitag bis Sonntag eines Wochenendes, sonst der einzelne Tag.
+- **Heim und Auswaerts sind getrennte Posts.** Ausnahme: passen alle Spiele des
+  Spieltags zusammen auf einen Screen, wird daraus ein `gemischt`-Post.
+- **Zeilen-Maxima**: 5 bei einer Ueberschrift, 4 bei zweien, 2 bei dreien. Was
+  nicht passt, wird auf einen zweiten Post verteilt (nach Anwurfzeit).
+- **Farb-Alternanz** ist Render-Logik, keine Daten: Zeile 1 jeder Gruppe weiss,
+  danach gelb/weiss — und der Wechsel startet in **jeder** Gruppe neu.
+- **Idempotenz** ueber `sourceKey` (Post-Art + Spieltag + Spiel-Ids). Ein zweiter
+  Lauf legt nichts an. `freigegeben` und `verworfen` werden **nie** ueberschrieben.
+- Die Zeiten des Posts sind Berliner Ortszeit — nie `new Date().getDay()` o.ae.
+  benutzen, sondern die Helfer aus `datetime.ts`.
+
+Ausloesen: `pnpm posts:generate` (siehe Befehle) oder
+`POST /api/matchdayPosts/generate?days=90&from=2026-09-01` — nur fuer
+angemeldete Benutzer.
+
+Der PNG-Export laeuft ueber `next/og` (satori), nicht ueber einen Browser-
+Screenshot: kein Chromium noetig, gleiche Eingabe = gleiche Pixel. Anton liegt
+dafuer als TTF in `public/fonts/Anton-Regular.ttf` — satori kann kein woff2 und
+keine Pfade aufloesen, alle Bilder gehen als Data-URI hinein
+(`lib/matchday-posts/assets.ts`). Die Post-Flaeche gibt es deshalb **zweimal**:
+als React-Komponente fuer den Browser und als satori-Baum fuer den Export. Die
+Masse teilen sich beide aus `design.ts` — neue Werte immer dort eintragen.
+
+**v2 (Instagram-Anbindung) ist vorbereitet, aber nicht gebaut.** Das Schema ist
+so geschnitten, dass rein additiv ergaenzt werden kann: `status` bekommt
+`geplant`/`gepostet`, dazu `scheduledFor` (date) und eine Gruppe `instagram`
+(`postedAt`, `mediaId`). Keine Umbenennung noetig — `caption` und der
+PNG-Export sind schon da.
 
 ## Phase B — offene Arbeiten
 

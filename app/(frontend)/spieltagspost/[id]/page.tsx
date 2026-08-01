@@ -75,7 +75,7 @@ export default async function MatchdayPostPage({ params, searchParams }: Props) 
         <a
           href={`/api/matchday-post/${post.id}/image`}
           download={`spieltagspost-${post.id}.png`}
-          className="bg-secondary text-fg-secondary font-condensed inline-block px-4 py-2 font-bold italic uppercase"
+          className="bg-secondary text-fg-secondary font-condensed inline-block px-4 py-2 font-bold uppercase italic"
         >
           {matchdayStrings.detail.download}
         </a>

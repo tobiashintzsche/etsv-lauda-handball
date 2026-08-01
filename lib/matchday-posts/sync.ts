@@ -83,7 +83,7 @@ function fingerprint(source: {
 /** Statuses the pipeline must not overwrite. */
 const PROTECTED_STATUS: readonly MatchdayPostStatus[] = ["freigegeben", "verworfen"];
 
-export function isProtected(status: MatchdayPostStatus): boolean {
+function isProtected(status: MatchdayPostStatus): boolean {
   return PROTECTED_STATUS.includes(status);
 }
 

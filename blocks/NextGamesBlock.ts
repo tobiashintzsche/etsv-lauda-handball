@@ -1,6 +1,6 @@
 import type { Block } from "payload";
 
-import { sectionFields } from "@/fields/section";
+import { anchorIdField } from "@/fields/section";
 
 /**
  * „Naechste Spiele“ in zwei Spalten (Heim / Auswaerts). Die Spiele kommen aus
@@ -59,6 +59,6 @@ export const NextGamesBlock: Block = {
           "die Einstellungen bleiben erhalten.",
       },
     },
-    sectionFields("primary"),
+    anchorIdField(),
   ],
 };

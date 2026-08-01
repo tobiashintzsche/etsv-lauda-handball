@@ -101,7 +101,7 @@ export const OVERLAY_PHOTO_POSITION = "62% 10%";
 export const MAX_ROWS_BY_GROUPS: Record<number, number> = { 1: 5, 2: 4, 3: 2 };
 
 /** Fallback for the (practically impossible) case of more than three groups. */
-export const MAX_ROWS_FALLBACK = 2;
+const MAX_ROWS_FALLBACK = 2;
 
 /** Maximum rows a post with `groupCount` headline groups may carry. */
 export function maxRowsForGroups(groupCount: number): number {

@@ -776,10 +776,6 @@ export interface NextGamesBlock {
    */
   active?: boolean | null;
   /**
-   * Bestimmt die Flaeche hinter diesem Abschnitt. Am besten abwechseln, damit sich die Abschnitte voneinander absetzen.
-   */
-  sectionBackground?: ('primary' | 'backgroundDark' | 'texture' | 'textureLight' | 'white') | null;
-  /**
    * Optional. Erlaubt Sprunglinks auf diesen Abschnitt, z.B. „kontakt“ fuer die Adresse /kontakt#kontakt. Nur Kleinbuchstaben, Zahlen und Bindestriche.
    */
   anchorId?: string | null;
@@ -1448,7 +1444,6 @@ export interface NextGamesBlockSelect<T extends boolean = true> {
   team?: T;
   maxPerColumn?: T;
   active?: T;
-  sectionBackground?: T;
   anchorId?: T;
   id?: T;
   blockName?: T;

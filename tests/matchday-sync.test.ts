@@ -2,7 +2,11 @@ import { describe, expect, it } from "vitest";
 
 import { generateDrafts } from "@/lib/matchday-posts/generate";
 import { type ExistingPost, type PostsRepository, syncDrafts } from "@/lib/matchday-posts/sync";
-import type { MatchdayPostDraft, MatchdayPostStatus, SourceFixture } from "@/lib/matchday-posts/types";
+import type {
+  MatchdayPostDraft,
+  MatchdayPostStatus,
+  SourceFixture,
+} from "@/lib/matchday-posts/types";
 
 /**
  * Die Schreibregeln der Pipeline: neu anlegen, Vorschlaege aktualisieren,

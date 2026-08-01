@@ -68,7 +68,6 @@ export default async function TeamDetailPage({ params }: Params) {
             headline: strings.games.headline,
             team,
             maxPerColumn: 3,
-            sectionBackground: "primary",
           }}
         />
       )}

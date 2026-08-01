@@ -128,7 +128,10 @@ function group(item: MatchdayPostView["groups"][number], index: number) {
         </div>
       </div>
       {item.rows.map((entry, rowIndex) => (
-        <div key={`${entry.team}-${rowIndex}`} style={{ display: "flex", marginTop: POST_METRICS.gap }}>
+        <div
+          key={`${entry.team}-${rowIndex}`}
+          style={{ display: "flex", marginTop: POST_METRICS.gap }}
+        >
           {row(entry, `${entry.team}-${rowIndex}`)}
         </div>
       ))}

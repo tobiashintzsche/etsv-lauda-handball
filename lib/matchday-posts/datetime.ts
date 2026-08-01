@@ -97,20 +97,7 @@ export function matchdayKey(iso: string): string {
 }
 
 /** Adds days to a `YYYY-MM-DD` key. Pure calendar math, no time zone involved. */
-export function shiftDateKey(dateKey: string, days: number): string {
+function shiftDateKey(dateKey: string, days: number): string {
   const shifted = new Date(`${dateKey}T00:00:00Z`).getTime() + days * DAY_MS;
   return new Date(shifted).toISOString().slice(0, 10);
-}
-
-/** `YYYY-MM-DD` → ISO timestamp at midnight Berlin time (approximate, UTC-based). */
-export function dateKeyToIso(dateKey: string): string {
-  return new Date(`${dateKey}T00:00:00Z`).toISOString();
-}
-
-/** Inclusive window `[from, to]` as ISO timestamps, `days` long. */
-export function windowFrom(from: Date, days: number): { from: string; to: string } {
-  return {
-    from: from.toISOString(),
-    to: new Date(from.getTime() + days * DAY_MS).toISOString(),
-  };
 }

@@ -71,7 +71,6 @@ function homeLayout(teams: TeamMap, media: MediaMap): Layout {
       subline: "Saison 2026/27",
       maxPerColumn: 3,
       active: true,
-      sectionBackground: "primary",
     },
   ];
 

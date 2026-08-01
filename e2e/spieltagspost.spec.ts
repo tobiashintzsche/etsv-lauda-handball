@@ -29,10 +29,7 @@ test.describe("Spieltagsposts", () => {
 
   test("Uebersicht ist noindex", async ({ page }) => {
     await page.goto("/spieltagspost");
-    await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
-      "content",
-      /noindex/,
-    );
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
   });
 
   test("Render-Route zeigt Badge und Spielzeilen", async ({ page }) => {
