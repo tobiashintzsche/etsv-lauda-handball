@@ -1,0 +1,45 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+
+# next.js
+/.next/
+/out/
+/build
+
+# testing
+/coverage
+/test-results/
+
+# misc
+.DS_Store
+*.pem
+tmp/
+certificates/
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+.pnpm-debug.log*
+
+# env files — .env.example wird bewusst committet (dient als Dokumentation)
+.env
+.env*.local
+!.env.example
+
+# Payload
+.payload/
+# Lokal hochgeladene Uploads (in Produktion liegen sie im Vercel Blob Store)
+/media/
+# migrations/ und payload-types.ts werden bewusst COMMITTED
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Claude Code lokale Einstellungen
+.claude/settings.local.json

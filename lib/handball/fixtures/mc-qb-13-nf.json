@@ -1,0 +1,69 @@
+{
+  "season": "2025/26",
+  "tournamentId": "handball4all.baden-wuerttemberg.mc-qb-13-nf_nf",
+  "tournamentName": "Neckar-Franken - mC-Jugend Qualifikation auf Bezirksebene Gruppe 13",
+  "aliases": [
+    "handball4all.baden-wuerttemberg.mc-qb-13-nf_nf",
+    "handball4all.baden-wuerttemberg.1451411",
+    "handball4all.baden-wuerttemberg.mc-bl-nf_nf",
+    "handball4all.baden-wuerttemberg.1486231"
+  ],
+  "rows": [
+    {
+      "rank": 1,
+      "teamId": "handball4all.baden-wuerttemberg.1451426",
+      "teamName": "HSG Staufer Bad Wimpfen/Biberach",
+      "logo": "handball-net:files/clubs/logos/61962794-34d1-4266-9606-e589732eed28.png",
+      "games": 3,
+      "wins": 3,
+      "draws": 0,
+      "losses": 0,
+      "points": "6:0",
+      "goals": 63,
+      "goalsAgainst": 31,
+      "goalDifference": 32
+    },
+    {
+      "rank": 2,
+      "teamId": "handball4all.baden-wuerttemberg.1451411",
+      "teamName": "ETSV Lauda",
+      "logo": "handball-net:files/migration/V20210907/H4A_26005_Baden_Lauda.svg",
+      "games": 3,
+      "wins": 1,
+      "draws": 1,
+      "losses": 1,
+      "points": "3:3",
+      "goals": 42,
+      "goalsAgainst": 48,
+      "goalDifference": -6
+    },
+    {
+      "rank": null,
+      "teamId": "handball4all.baden-wuerttemberg.1451416",
+      "teamName": "TSV Willsbach",
+      "logo": "handball-net:files/clubs/logos/26fe29f2-b0ae-429b-a7ea-2047dcd80af8.png",
+      "games": 3,
+      "wins": 1,
+      "draws": 1,
+      "losses": 1,
+      "points": "3:3",
+      "goals": 40,
+      "goalsAgainst": 49,
+      "goalDifference": -9
+    },
+    {
+      "rank": 4,
+      "teamId": "handball4all.baden-wuerttemberg.1451421",
+      "teamName": "JSG Neckarelz-Obrigheim",
+      "logo": "handball-net:files/clubs/logos/cd13a49c-37d9-4638-8a06-9c17624bf400.png",
+      "games": 3,
+      "wins": 0,
+      "draws": 0,
+      "losses": 3,
+      "points": "0:6",
+      "goals": 36,
+      "goalsAgainst": 53,
+      "goalDifference": -17
+    }
+  ]
+}

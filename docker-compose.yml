@@ -1,0 +1,28 @@
+# Lokale Postgres-Instanz fuer die Entwicklung.
+# Port 5502 statt 5432, damit eine parallel laufende System-Postgres-
+# Installation nicht kollidiert.
+#
+#   docker compose up -d      # starten
+#   docker compose down       # stoppen (Daten bleiben im Volume)
+#   docker compose down -v    # stoppen + Daten loeschen
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: etsv-lauda-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: etsv_lauda
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5502:5432"
+    volumes:
+      - etsv-lauda-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d etsv_lauda"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  etsv-lauda-pgdata:

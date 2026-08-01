@@ -1,0 +1,257 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+/* ───────────────────────────────────────────────────────────────────────────
+   Design-Tokens — Quelle: Figma Ib98Fg5BRA8fOhxW3XNAZ1
+
+   Kein Dark-Mode-Schalter: die Seite IST dunkel. Die Abwechslung entsteht
+   ueber `sectionBackground` (siehe fields/section.ts), nicht ueber ein Theme.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+@theme inline {
+  /* Marken- und Flaechenfarben */
+  --color-primary: #1a213b;
+  --color-secondary: #fdc52c;
+  --color-background-dark: #14192e;
+
+  /* Textfarben */
+  --color-fg-primary: #ffffff;
+  --color-fg-secondary: #000000;
+
+  /* Grautoene */
+  --color-muted: #d6d6d6; /* Teaser-Text auf dunklem Grund */
+  --color-line: #adadad; /* Trennlinien in Menue und Filterleiste */
+  --color-placeholder: #8d8d8d; /* Platzhaltertext in Filterfeldern */
+  --color-position: #323850; /* Positionszeile auf der Spielerkarte */
+  --color-surface-light: #f9f9f9; /* Untermenue-Flyout */
+
+  /* Schriften — inline zwingend, damit die next/font-Variablen zur Laufzeit
+     aufgeloest werden. `condensed` traegt ALLE Headlines (immer kursiv). */
+  --font-condensed: var(--font-roboto-condensed, ui-sans-serif, system-ui, sans-serif);
+  --font-sans: var(--font-roboto, ui-sans-serif, system-ui, sans-serif);
+  --font-ubuntu: var(--font-ubuntu, ui-sans-serif, system-ui, sans-serif);
+
+  /* Radien — im Design fast ueberall 0 */
+  --radius-hbnet: 3.5px; /* handball.net-Button */
+  --radius-score: 4px; /* Score-Badge */
+
+  /* Schatten */
+  --shadow-card: 0 4px 4px rgba(0, 0, 0, 0.25);
+  --shadow-flyout: -4px 0 16px rgba(0, 0, 0, 0.25);
+  --shadow-header: 0 4px 4px rgba(255, 255, 255, 0.4);
+}
+
+:root {
+  /* Overlays ueber der Beton-Textur. Als Variablen, weil die Artikelseite
+     einen anderen Ton nutzt als der Team-Hero. */
+  --overlay-dark: rgba(26, 33, 59, 0.7);
+  --overlay-dark-alt: rgba(20, 25, 46, 0.7);
+  --overlay-light: rgba(255, 255, 255, 0.7);
+
+  /* Flaeche der Spielerkarte */
+  --player-card-surface: rgba(26, 33, 59, 0.89);
+
+  /* Verlauf hinter dem Mitglieder-Banner */
+  --member-gradient: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(8, 8, 9, 0.95) 71%);
+
+  /* Beton-Textur (612×326) — wird gekachelt */
+  --texture-url: url("/brand/texture-concrete-dark.png");
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-primary);
+    color: var(--color-fg-primary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Alle Headlines sind Roboto Condensed KURSIV — das traegt die ganze
+     Bildsprache. `.heading-italic` setzt es explizit, hier nur der Default. */
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-condensed);
+    font-style: italic;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+
+  /* Sichtbarer Fokus auf dunklem Grund — WCAG 2.4.7. */
+  :focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+  }
+
+  /* Gelb (#FDC52C) auf Weiss erreicht nur ~1.4:1 und verfehlt WCAG 1.4.11
+     deutlich. Auf allen hellen Flaechen — Sponsoren-Textur, Matchday-Bar,
+     Nav-Flyout — und auf gelben Buttons deshalb die dunkle Variante. */
+  .texture-section-light :focus-visible,
+  .bg-white :focus-visible,
+  .bg-surface-light :focus-visible,
+  .bg-secondary:focus-visible,
+  .focus\:bg-secondary:focus-visible {
+    outline-color: var(--color-primary);
+  }
+
+  /* Anker-Ziele nicht unter den Header schieben. */
+  [id] {
+    scroll-margin-top: 6rem;
+  }
+}
+
+@layer components {
+  /* ── Typografie-Bausteine ────────────────────────────────────────────── */
+
+  /* Ueberschrift: Condensed Bold Italic Uppercase. Groessen setzt die
+     jeweilige Komponente — hier nur der Schriftschnitt. */
+  .heading-italic {
+    font-family: var(--font-condensed);
+    font-style: italic;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+
+  /* Nav-Items, Spaltentitel, Footer-Links: Condensed SemiBold Italic. */
+  .label-italic {
+    font-family: var(--font-condensed);
+    font-style: italic;
+    font-weight: 600;
+    line-height: 1.1;
+  }
+
+  /* handball.net-Attribution — als einziges Element in Ubuntu. */
+  .font-attribution {
+    font-family: var(--font-ubuntu);
+  }
+
+  /* ── Beton-Textur ────────────────────────────────────────────────────── */
+
+  /* Dunkle Variante: Textur gekachelt, darueber ein blauer Schleier.
+     Der Overlay liegt als ::before darauf, damit Inhalte (z-10) darueber
+     bleiben und die Textur selbst nicht an Schaerfe verliert. */
+  .texture-section {
+    position: relative;
+    isolation: isolate;
+    background-color: var(--color-primary);
+    background-image: var(--texture-url);
+    background-repeat: repeat;
+    background-size: 612px 326px;
+  }
+
+  .texture-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: var(--overlay-dark);
+    pointer-events: none;
+  }
+
+  /* Variante fuer die Artikelseite — minimal anderer Blauton. */
+  .texture-section-alt {
+    position: relative;
+    isolation: isolate;
+    background-color: var(--color-background-dark);
+    background-image: var(--texture-url);
+    background-repeat: repeat;
+    background-size: 612px 326px;
+  }
+
+  .texture-section-alt::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: var(--overlay-dark-alt);
+    pointer-events: none;
+  }
+
+  /* Helle Variante (Sponsoren): weisser Schleier → schwarzer Text. */
+  .texture-section-light {
+    position: relative;
+    isolation: isolate;
+    background-color: #ffffff;
+    background-image: var(--texture-url);
+    background-repeat: repeat;
+    background-size: 612px 326px;
+  }
+
+  .texture-section-light::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: var(--overlay-light);
+    pointer-events: none;
+  }
+
+  /* ── Horizontale Scroll-Tracks (mobil) ───────────────────────────────── */
+
+  /* News-Teaser, „Mehr als Handball“, Spielerkarten und Ligatabelle laufen
+     auf dem Handy horizontal — der Anschnitt am Rand ist Absicht und darf
+     NICHT zu einem gestapelten Grid korrigiert werden. */
+  .scroll-track {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .scroll-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scroll-track > * {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+
+  /* ── Fliesstext im Artikel ───────────────────────────────────────────── */
+
+  .payload-richtext > :first-child {
+    margin-top: 0;
+  }
+
+  .payload-richtext > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+@layer utilities {
+  /* Verlauf hinter dem Mitglieder-Banner. */
+  .bg-member-gradient {
+    background-image: var(--member-gradient);
+  }
+
+  /* Flaeche der Spielerkarte. */
+  .bg-player-card {
+    background-color: var(--player-card-surface);
+  }
+}
+
+/* Bewegungsreduktion respektieren — WCAG 2.3.3. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "season": "2025/26",
+  "tournamentId": "handball4all.baden-wuerttemberg.wa-bl-nf_nf",
+  "tournamentName": "Neckar-Franken - wA-Jugend Bezirksliga",
+  "aliases": [
+    "handball4all.baden-wuerttemberg.wa-bl-nf_nf",
+    "handball4all.baden-wuerttemberg.1340186",
+    "handball4all.baden-wuerttemberg.1484316"
+  ],
+  "rows": [
+    {
+      "rank": 1,
+      "teamId": "handball4all.baden-wuerttemberg.1340146",
+      "teamName": "TSV 1866 Weinsberg",
+      "logo": "handball-net:files/clubs/logos/5aaba13d-31c2-4d6b-a6b2-43b9f6695849.jpeg",
+      "games": 10,
+      "wins": 10,
+      "draws": 0,
+      "losses": 0,
+      "points": "20:0",
+      "goals": 312,
+      "goalsAgainst": 220,
+      "goalDifference": 92
+    },
+    {
+      "rank": 2,
+      "teamId": "handball4all.baden-wuerttemberg.1340171",
+      "teamName": "HSG Marbach-Rielingshausen",
+      "logo": "handball-net:files/clubs/logos/416380af-09e9-49f7-9a5a-dd50a3ceefcf.png",
+      "games": 10,
+      "wins": 6,
+      "draws": 0,
+      "losses": 4,
+      "points": "12:8",
+      "goals": 273,
+      "goalsAgainst": 251,
+      "goalDifference": 22
+    },
+    {
+      "rank": 3,
+      "teamId": "handball4all.baden-wuerttemberg.1340151",
+      "teamName": "HB Ludwigsburg",
+      "logo": "handball-net:files/clubs/logos/4acb2518-e601-4f38-9888-e1892f55ba90.png",
+      "games": 10,
+      "wins": 5,
+      "draws": 0,
+      "losses": 5,
+      "points": "10:10",
+      "goals": 250,
+      "goalsAgainst": 218,
+      "goalDifference": 32
+    },
+    {
+      "rank": 4,
+      "teamId": "handball4all.baden-wuerttemberg.1340161",
+      "teamName": "HC Metter-Enz",
+      "logo": "handball-net:files/clubs/logos/37d21845-8e6e-45dc-8cbc-bcd2a68abef9.png",
+      "games": 10,
+      "wins": 4,
+      "draws": 1,
+      "losses": 5,
+      "points": "9:11",
+      "goals": 256,
+      "goalsAgainst": 240,
+      "goalDifference": 16
+    },
+    {
+      "rank": 5,
+      "teamId": "handball4all.baden-wuerttemberg.1340166",
+      "teamName": "HSG Leudelsbach",
+      "logo": "handball-net:files/clubs/logos/a6968a37-2ca3-4d27-92b1-d9121357decf.jpeg",
+      "games": 10,
+      "wins": 2,
+      "draws": 1,
+      "losses": 7,
+      "points": "5:15",
+      "goals": 203,
+      "goalsAgainst": 248,
+      "goalDifference": -45
+    },
+    {
+      "rank": 6,
+      "teamId": "handball4all.baden-wuerttemberg.1340186",
+      "teamName": "ETSV Lauda",
+      "logo": "handball-net:files/migration/V20210907/H4A_26005_Baden_Lauda.svg",
+      "games": 10,
+      "wins": 2,
+      "draws": 0,
+      "losses": 8,
+      "points": "4:16",
+      "goals": 165,
+      "goalsAgainst": 282,
+      "goalDifference": -117
+    },
+    {
+      "rank": 7,
+      "teamId": "handball4all.baden-wuerttemberg.1340181",
+      "teamName": "JSG Taubertal",
+      "logo": "handball-net:files/clubs/logos/8f53d0ca-e92a-4982-8442-d4ce9b8fe446.jpeg",
+      "games": 0,
+      "wins": 0,
+      "draws": 0,
+      "losses": 0,
+      "points": "0:0",
+      "goals": 0,
+      "goalsAgainst": 0,
+      "goalDifference": 0
+    }
+  ]
+}

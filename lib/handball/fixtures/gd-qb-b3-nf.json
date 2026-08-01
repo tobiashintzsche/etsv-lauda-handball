@@ -1,0 +1,81 @@
+{
+  "season": "2025/26",
+  "tournamentId": "handball4all.baden-wuerttemberg.gd-qb-b3-nf_nf",
+  "tournamentName": "Neckar-Franken - gD-Jugend Quali (Basis) zur Bezirks-OL Gruppe 3",
+  "aliases": [
+    "handball4all.baden-wuerttemberg.gd-qb-b3-nf_nf",
+    "handball4all.baden-wuerttemberg.1424081"
+  ],
+  "rows": [
+    {
+      "rank": 1,
+      "teamId": "handball4all.baden-wuerttemberg.1424096",
+      "teamName": "HB Ludwigsburg",
+      "logo": "handball-net:files/clubs/logos/4acb2518-e601-4f38-9888-e1892f55ba90.png",
+      "games": 4,
+      "wins": 4,
+      "draws": 0,
+      "losses": 0,
+      "points": "8:0",
+      "goals": 64,
+      "goalsAgainst": 32,
+      "goalDifference": 32
+    },
+    {
+      "rank": 2,
+      "teamId": "handball4all.baden-wuerttemberg.1424086",
+      "teamName": "TV Hardheim 1895",
+      "logo": "handball-net:files/clubs/logos/132eb8aa-4967-44ea-b60e-feafb415099c.png",
+      "games": 4,
+      "wins": 3,
+      "draws": 0,
+      "losses": 1,
+      "points": "6:2",
+      "goals": 72,
+      "goalsAgainst": 37,
+      "goalDifference": 35
+    },
+    {
+      "rank": 3,
+      "teamId": "handball4all.baden-wuerttemberg.1424076",
+      "teamName": "TV Mosbach",
+      "logo": "handball-net:files/migration/V20210907/H4A_27011_Baden_Mosbach.png",
+      "games": 4,
+      "wins": 2,
+      "draws": 0,
+      "losses": 2,
+      "points": "4:4",
+      "goals": 55,
+      "goalsAgainst": 47,
+      "goalDifference": 8
+    },
+    {
+      "rank": 4,
+      "teamId": "handball4all.baden-wuerttemberg.1424081",
+      "teamName": "ETSV Lauda",
+      "logo": "handball-net:files/migration/V20210907/H4A_26005_Baden_Lauda.svg",
+      "games": 4,
+      "wins": 1,
+      "draws": 0,
+      "losses": 3,
+      "points": "2:6",
+      "goals": 55,
+      "goalsAgainst": 50,
+      "goalDifference": 5
+    },
+    {
+      "rank": 5,
+      "teamId": "handball4all.baden-wuerttemberg.1424091",
+      "teamName": "JSG Tauberfranken 2",
+      "logo": "handball-net:files/clubs/logos/032fde5e-eb08-45c8-9658-da595bedfe3c.jpeg",
+      "games": 4,
+      "wins": 0,
+      "draws": 0,
+      "losses": 4,
+      "points": "0:8",
+      "goals": 16,
+      "goalsAgainst": 96,
+      "goalDifference": -80
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "season": "2025/26",
+  "tournamentId": "handball4all.baden-wuerttemberg.wb-bl-1-nf_nf",
+  "tournamentName": "Neckar-Franken - wB-Jugend Bezirksliga Gruppe 1",
+  "aliases": [
+    "handball4all.baden-wuerttemberg.wb-bl-1-nf_nf",
+    "handball4all.baden-wuerttemberg.1340256"
+  ],
+  "rows": [
+    {
+      "rank": 1,
+      "teamId": "handball4all.baden-wuerttemberg.1340231",
+      "teamName": "TV Bad Rappenau",
+      "logo": "handball-net:files/clubs/logos/ed693729-410f-4b8b-93ce-33b6da25c7ea.png",
+      "games": 12,
+      "wins": 11,
+      "draws": 0,
+      "losses": 1,
+      "points": "22:2",
+      "goals": 363,
+      "goalsAgainst": 266,
+      "goalDifference": 97
+    },
+    {
+      "rank": 2,
+      "teamId": "handball4all.baden-wuerttemberg.1340236",
+      "teamName": "TB Richen",
+      "logo": "handball-net:files/clubs/logos/2ea6bcc2-ff0e-407f-b420-610d99c27074.png",
+      "games": 12,
+      "wins": 9,
+      "draws": 1,
+      "losses": 2,
+      "points": "19:5",
+      "goals": 258,
+      "goalsAgainst": 223,
+      "goalDifference": 35
+    },
+    {
+      "rank": 3,
+      "teamId": "handball4all.baden-wuerttemberg.1340246",
+      "teamName": "TSV Hardthausen",
+      "logo": "handball-net:files/clubs/logos/51cdf789-8dc3-4111-b13a-b7d2fa85b4dc.png",
+      "games": 12,
+      "wins": 6,
+      "draws": 1,
+      "losses": 5,
+      "points": "13:11",
+      "goals": 264,
+      "goalsAgainst": 249,
+      "goalDifference": 15
+    },
+    {
+      "rank": 4,
+      "teamId": "handball4all.baden-wuerttemberg.1340256",
+      "teamName": "ETSV Lauda",
+      "logo": "handball-net:files/migration/V20210907/H4A_26005_Baden_Lauda.svg",
+      "games": 12,
+      "wins": 5,
+      "draws": 2,
+      "losses": 5,
+      "points": "12:12",
+      "goals": 211,
+      "goalsAgainst": 218,
+      "goalDifference": -7
+    },
+    {
+      "rank": 5,
+      "teamId": "handball4all.baden-wuerttemberg.1340241",
+      "teamName": "SpG Walldürn",
+      "logo": "handball-net:files/clubs/logos/5bab09d7-ee97-4266-a7e0-4fd4e2a6f98a.png",
+      "games": 12,
+      "wins": 5,
+      "draws": 1,
+      "losses": 6,
+      "points": "11:13",
+      "goals": 265,
+      "goalsAgainst": 250,
+      "goalDifference": 15
+    },
+    {
+      "rank": 6,
+      "teamId": "handball4all.baden-wuerttemberg.1340261",
+      "teamName": "HSG Lauffen-Neipperg",
+      "logo": "handball-net:files/clubs/logos/0fd894f0-fa23-4111-801b-48fdfec2c9ce.jpeg",
+      "games": 12,
+      "wins": 3,
+      "draws": 1,
+      "losses": 8,
+      "points": "7:17",
+      "goals": 261,
+      "goalsAgainst": 280,
+      "goalDifference": -19
+    },
+    {
+      "rank": 7,
+      "teamId": "handball4all.baden-wuerttemberg.1340251",
+      "teamName": "SG Gundelsheim",
+      "logo": "handball-net:files/migration/V20210907/H4A_437_Wuerttemberg_Gundelsheim.jpg",
+      "games": 12,
+      "wins": 0,
+      "draws": 0,
+      "losses": 12,
+      "points": "0:24",
+      "goals": 200,
+      "goalsAgainst": 336,
+      "goalDifference": -136
+    }
+  ]
+}

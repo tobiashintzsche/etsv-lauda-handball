@@ -1,0 +1,123 @@
+{
+  "season": "2025/26",
+  "tournamentId": "handball4all.baden-wuerttemberg.wd-bk-1-nf_nf",
+  "tournamentName": "Neckar-Franken - wD-Jugend Bezirksklasse Gruppe 1",
+  "aliases": [
+    "handball4all.baden-wuerttemberg.wd-bk-1-nf_nf",
+    "handball4all.baden-wuerttemberg.1340651"
+  ],
+  "rows": [
+    {
+      "rank": 1,
+      "teamId": "handball4all.baden-wuerttemberg.1340641",
+      "teamName": "TV Bad Rappenau",
+      "logo": "handball-net:files/clubs/logos/ed693729-410f-4b8b-93ce-33b6da25c7ea.png",
+      "games": 14,
+      "wins": 13,
+      "draws": 0,
+      "losses": 1,
+      "points": "26:2",
+      "goals": 356,
+      "goalsAgainst": 237,
+      "goalDifference": 119
+    },
+    {
+      "rank": 2,
+      "teamId": "handball4all.baden-wuerttemberg.1340636",
+      "teamName": "HSG Kochertürn/Stein 2",
+      "logo": "handball-net:files/clubs/logos/4ff6f414-360f-4c80-ad58-edd01c2d9421.png",
+      "games": 14,
+      "wins": 10,
+      "draws": 1,
+      "losses": 3,
+      "points": "21:7",
+      "goals": 309,
+      "goalsAgainst": 215,
+      "goalDifference": 94
+    },
+    {
+      "rank": 3,
+      "teamId": "handball4all.baden-wuerttemberg.1340646",
+      "teamName": "SG Heuchelberg 2",
+      "logo": "handball-net:files/clubs/logos/be48cb1e-f7f1-4abe-93b5-0c0648fcbba2.jpeg",
+      "games": 14,
+      "wins": 9,
+      "draws": 1,
+      "losses": 4,
+      "points": "19:9",
+      "goals": 253,
+      "goalsAgainst": 221,
+      "goalDifference": 32
+    },
+    {
+      "rank": 4,
+      "teamId": "handball4all.baden-wuerttemberg.1351101",
+      "teamName": "TSV Willsbach",
+      "logo": "handball-net:files/clubs/logos/26fe29f2-b0ae-429b-a7ea-2047dcd80af8.png",
+      "games": 14,
+      "wins": 9,
+      "draws": 0,
+      "losses": 5,
+      "points": "18:10",
+      "goals": 283,
+      "goalsAgainst": 199,
+      "goalDifference": 84
+    },
+    {
+      "rank": 5,
+      "teamId": "handball4all.baden-wuerttemberg.1340631",
+      "teamName": "TSV Hardthausen",
+      "logo": "handball-net:files/clubs/logos/51cdf789-8dc3-4111-b13a-b7d2fa85b4dc.png",
+      "games": 14,
+      "wins": 5,
+      "draws": 2,
+      "losses": 7,
+      "points": "12:16",
+      "goals": 266,
+      "goalsAgainst": 271,
+      "goalDifference": -5
+    },
+    {
+      "rank": 6,
+      "teamId": "handball4all.baden-wuerttemberg.1340651",
+      "teamName": "ETSV Lauda",
+      "logo": "handball-net:files/migration/V20210907/H4A_26005_Baden_Lauda.svg",
+      "games": 14,
+      "wins": 5,
+      "draws": 0,
+      "losses": 9,
+      "points": "10:18",
+      "goals": 212,
+      "goalsAgainst": 220,
+      "goalDifference": -8
+    },
+    {
+      "rank": 7,
+      "teamId": "handball4all.baden-wuerttemberg.1340626",
+      "teamName": "TB Richen 2",
+      "logo": "handball-net:files/clubs/logos/2ea6bcc2-ff0e-407f-b420-610d99c27074.png",
+      "games": 14,
+      "wins": 1,
+      "draws": 1,
+      "losses": 12,
+      "points": "3:25",
+      "goals": 146,
+      "goalsAgainst": 315,
+      "goalDifference": -169
+    },
+    {
+      "rank": 8,
+      "teamId": "handball4all.baden-wuerttemberg.1340656",
+      "teamName": "JSG Taubertal",
+      "logo": "handball-net:files/clubs/logos/8f53d0ca-e92a-4982-8442-d4ce9b8fe446.jpeg",
+      "games": 14,
+      "wins": 1,
+      "draws": 1,
+      "losses": 12,
+      "points": "3:25",
+      "goals": 111,
+      "goalsAgainst": 258,
+      "goalDifference": -147
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "season": "2025/26",
+  "tournamentId": "handball4all.baden-wuerttemberg.wc-qb-2-nf_nf",
+  "tournamentName": "Neckar-Franken - wC-Jugend Qualifikation auf Bezirksebene Gruppe 2",
+  "aliases": [
+    "handball4all.baden-wuerttemberg.wc-qb-2-nf_nf",
+    "handball4all.baden-wuerttemberg.1426156",
+    "handball4all.baden-wuerttemberg.wc-bk-2-nf_nf",
+    "handball4all.baden-wuerttemberg.1486526"
+  ],
+  "rows": [
+    {
+      "rank": 1,
+      "teamId": "handball4all.baden-wuerttemberg.1426136",
+      "teamName": "TV Mosbach",
+      "logo": "handball-net:files/migration/V20210907/H4A_27011_Baden_Mosbach.png",
+      "games": 4,
+      "wins": 4,
+      "draws": 0,
+      "losses": 0,
+      "points": "8:0",
+      "goals": 54,
+      "goalsAgainst": 21,
+      "goalDifference": 33
+    },
+    {
+      "rank": 2,
+      "teamId": "handball4all.baden-wuerttemberg.1426151",
+      "teamName": "Sport-Union Neckarsulm 2",
+      "logo": "handball-net:files/clubs/logos/b9302fdc-28fb-4706-bcc7-8a2fe39519dd.png",
+      "games": 4,
+      "wins": 3,
+      "draws": 0,
+      "losses": 1,
+      "points": "6:2",
+      "goals": 52,
+      "goalsAgainst": 30,
+      "goalDifference": 22
+    },
+    {
+      "rank": 3,
+      "teamId": "handball4all.baden-wuerttemberg.1426146",
+      "teamName": "JSG Taubertal",
+      "logo": "handball-net:files/clubs/logos/8f53d0ca-e92a-4982-8442-d4ce9b8fe446.jpeg",
+      "games": 4,
+      "wins": 2,
+      "draws": 0,
+      "losses": 2,
+      "points": "4:4",
+      "goals": 37,
+      "goalsAgainst": 35,
+      "goalDifference": 2
+    },
+    {
+      "rank": 4,
+      "teamId": "handball4all.baden-wuerttemberg.1426141",
+      "teamName": "JHFH Jugendhandball Flein-Horkheim",
+      "logo": "handball-net:files/clubs/logos/4a00578f-264d-489e-b92c-f329f98e7d30.jpeg",
+      "games": 4,
+      "wins": 1,
+      "draws": 0,
+      "losses": 3,
+      "points": "2:6",
+      "goals": 13,
+      "goalsAgainst": 15,
+      "goalDifference": -2
+    },
+    {
+      "rank": 5,
+      "teamId": "handball4all.baden-wuerttemberg.1426156",
+      "teamName": "ETSV Lauda",
+      "logo": "handball-net:files/migration/V20210907/H4A_26005_Baden_Lauda.svg",
+      "games": 4,
+      "wins": 0,
+      "draws": 0,
+      "losses": 4,
+      "points": "0:8",
+      "goals": 14,
+      "goalsAgainst": 69,
+      "goalDifference": -55
+    }
+  ]
+}

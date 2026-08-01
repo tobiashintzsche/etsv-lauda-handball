@@ -1,0 +1,81 @@
+{
+  "season": "2025/26",
+  "tournamentId": "handball4all.baden-wuerttemberg.wa-qb-1-nf_nf",
+  "tournamentName": "Neckar-Franken - wA-Jugend Qualifikation auf Bezirksebene Gruppe 1",
+  "aliases": [
+    "handball4all.baden-wuerttemberg.wa-qb-1-nf_nf",
+    "handball4all.baden-wuerttemberg.1425966"
+  ],
+  "rows": [
+    {
+      "rank": 1,
+      "teamId": "handball4all.baden-wuerttemberg.1425956",
+      "teamName": "HSG Hohenlohe",
+      "logo": "handball-net:files/clubs/logos/ff5f0ac1-8b23-464c-89ff-d7d368fb3ffa.jpeg",
+      "games": 4,
+      "wins": 3,
+      "draws": 0,
+      "losses": 1,
+      "points": "6:2",
+      "goals": 53,
+      "goalsAgainst": 37,
+      "goalDifference": 16
+    },
+    {
+      "rank": 2,
+      "teamId": "handball4all.baden-wuerttemberg.1425951",
+      "teamName": "JHFH Jugendhandball Flein-Horkheim",
+      "logo": "handball-net:files/clubs/logos/4a00578f-264d-489e-b92c-f329f98e7d30.jpeg",
+      "games": 4,
+      "wins": 3,
+      "draws": 0,
+      "losses": 1,
+      "points": "6:2",
+      "goals": 55,
+      "goalsAgainst": 31,
+      "goalDifference": 24
+    },
+    {
+      "rank": 3,
+      "teamId": "handball4all.baden-wuerttemberg.1425961",
+      "teamName": "HSG Marbach-Rielingshausen",
+      "logo": "handball-net:files/clubs/logos/416380af-09e9-49f7-9a5a-dd50a3ceefcf.png",
+      "games": 4,
+      "wins": 2,
+      "draws": 1,
+      "losses": 1,
+      "points": "5:3",
+      "goals": 52,
+      "goalsAgainst": 57,
+      "goalDifference": -5
+    },
+    {
+      "rank": 4,
+      "teamId": "handball4all.baden-wuerttemberg.1425971",
+      "teamName": "HSG Leudelsbach",
+      "logo": "handball-net:files/clubs/logos/a6968a37-2ca3-4d27-92b1-d9121357decf.jpeg",
+      "games": 4,
+      "wins": 1,
+      "draws": 0,
+      "losses": 3,
+      "points": "2:6",
+      "goals": 44,
+      "goalsAgainst": 62,
+      "goalDifference": -18
+    },
+    {
+      "rank": 5,
+      "teamId": "handball4all.baden-wuerttemberg.1425966",
+      "teamName": "ETSV Lauda",
+      "logo": "handball-net:files/migration/V20210907/H4A_26005_Baden_Lauda.svg",
+      "games": 4,
+      "wins": 0,
+      "draws": 1,
+      "losses": 3,
+      "points": "1:7",
+      "goals": 35,
+      "goalsAgainst": 52,
+      "goalDifference": -17
+    }
+  ]
+}

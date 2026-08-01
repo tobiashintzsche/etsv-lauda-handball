@@ -1,0 +1,67 @@
+{
+  "season": "2025/26",
+  "tournamentId": "handball4all.baden-wuerttemberg.mc-qb-2-nf_nf",
+  "tournamentName": "Neckar-Franken - mC-Jugend Qualifikation auf Bezirksebene Gruppe 2",
+  "aliases": [
+    "handball4all.baden-wuerttemberg.mc-qb-2-nf_nf",
+    "handball4all.baden-wuerttemberg.1422751"
+  ],
+  "rows": [
+    {
+      "rank": 1,
+      "teamId": "handball4all.baden-wuerttemberg.1422741",
+      "teamName": "TSV 1863 Buchen",
+      "logo": "handball-net:files/migration/V20210907/H4A_26008_Baden_Buchen.jpg",
+      "games": 3,
+      "wins": 3,
+      "draws": 0,
+      "losses": 0,
+      "points": "6:0",
+      "goals": 53,
+      "goalsAgainst": 36,
+      "goalDifference": 17
+    },
+    {
+      "rank": 2,
+      "teamId": "handball4all.baden-wuerttemberg.1422751",
+      "teamName": "ETSV Lauda",
+      "logo": "handball-net:files/migration/V20210907/H4A_26005_Baden_Lauda.svg",
+      "games": 3,
+      "wins": 2,
+      "draws": 0,
+      "losses": 1,
+      "points": "4:2",
+      "goals": 42,
+      "goalsAgainst": 45,
+      "goalDifference": -3
+    },
+    {
+      "rank": 3,
+      "teamId": "handball4all.baden-wuerttemberg.1422736",
+      "teamName": "TV Hardheim 1895",
+      "logo": "handball-net:files/clubs/logos/132eb8aa-4967-44ea-b60e-feafb415099c.png",
+      "games": 3,
+      "wins": 1,
+      "draws": 0,
+      "losses": 2,
+      "points": "2:4",
+      "goals": 45,
+      "goalsAgainst": 42,
+      "goalDifference": 3
+    },
+    {
+      "rank": 4,
+      "teamId": "handball4all.baden-wuerttemberg.1422746",
+      "teamName": "JSG Tauberfranken",
+      "logo": "handball-net:files/clubs/logos/032fde5e-eb08-45c8-9658-da595bedfe3c.jpeg",
+      "games": 3,
+      "wins": 0,
+      "draws": 0,
+      "losses": 3,
+      "points": "0:6",
+      "goals": 44,
+      "goalsAgainst": 61,
+      "goalDifference": -17
+    }
+  ]
+}

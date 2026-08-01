@@ -1,0 +1,111 @@
+{
+  "season": "2025/26",
+  "tournamentId": "handball4all.baden-wuerttemberg.gd-bk-1-nf_nf",
+  "tournamentName": "Neckar-Franken - gD-Jugend Bezirksklasse Gruppe 1",
+  "aliases": [
+    "handball4all.baden-wuerttemberg.gd-bk-1-nf_nf",
+    "handball4all.baden-wuerttemberg.1351111",
+    "handball4all.baden-wuerttemberg.gd-bk-4-nf_nf",
+    "handball4all.baden-wuerttemberg.1492381"
+  ],
+  "rows": [
+    {
+      "rank": 1,
+      "teamId": "handball4all.baden-wuerttemberg.1351106",
+      "teamName": "JSG Tauberfranken",
+      "logo": "handball-net:files/clubs/logos/032fde5e-eb08-45c8-9658-da595bedfe3c.jpeg",
+      "games": 12,
+      "wins": 12,
+      "draws": 0,
+      "losses": 0,
+      "points": "24:0",
+      "goals": 345,
+      "goalsAgainst": 136,
+      "goalDifference": 209
+    },
+    {
+      "rank": 2,
+      "teamId": "handball4all.baden-wuerttemberg.1351111",
+      "teamName": "ETSV Lauda",
+      "logo": "handball-net:files/migration/V20210907/H4A_26005_Baden_Lauda.svg",
+      "games": 12,
+      "wins": 10,
+      "draws": 0,
+      "losses": 2,
+      "points": "20:4",
+      "goals": 303,
+      "goalsAgainst": 182,
+      "goalDifference": 121
+    },
+    {
+      "rank": 3,
+      "teamId": "handball4all.baden-wuerttemberg.1351126",
+      "teamName": "TV Hardheim 1895",
+      "logo": "handball-net:files/clubs/logos/132eb8aa-4967-44ea-b60e-feafb415099c.png",
+      "games": 12,
+      "wins": 7,
+      "draws": 1,
+      "losses": 4,
+      "points": "15:9",
+      "goals": 230,
+      "goalsAgainst": 218,
+      "goalDifference": 12
+    },
+    {
+      "rank": 4,
+      "teamId": "handball4all.baden-wuerttemberg.1351136",
+      "teamName": "TV Bad Rappenau 2",
+      "logo": "handball-net:files/clubs/logos/ed693729-410f-4b8b-93ce-33b6da25c7ea.png",
+      "games": 12,
+      "wins": 5,
+      "draws": 1,
+      "losses": 6,
+      "points": "11:13",
+      "goals": 271,
+      "goalsAgainst": 291,
+      "goalDifference": -20
+    },
+    {
+      "rank": 5,
+      "teamId": "handball4all.baden-wuerttemberg.1351131",
+      "teamName": "SG Bad Mergentheim",
+      "logo": "handball-net:files/clubs/logos/b4b1c49c-69f1-49b2-86a0-836b4983927b.png",
+      "games": 12,
+      "wins": 4,
+      "draws": 0,
+      "losses": 8,
+      "points": "8:16",
+      "goals": 244,
+      "goalsAgainst": 269,
+      "goalDifference": -25
+    },
+    {
+      "rank": 6,
+      "teamId": "handball4all.baden-wuerttemberg.1351116",
+      "teamName": "JSG Kochertal",
+      "logo": "handball-net:files/clubs/logos/2e4d2a53-d12d-4d04-883d-9dbcb9c98584.png",
+      "games": 12,
+      "wins": 3,
+      "draws": 0,
+      "losses": 9,
+      "points": "6:18",
+      "goals": 139,
+      "goalsAgainst": 237,
+      "goalDifference": -98
+    },
+    {
+      "rank": 7,
+      "teamId": "handball4all.baden-wuerttemberg.1351121",
+      "teamName": "SC Züttlingen",
+      "logo": "handball-net:files/migration/V20210907/H4A_470_Wuerttemberg_Zuettlingen.jpg",
+      "games": 12,
+      "wins": 0,
+      "draws": 0,
+      "losses": 12,
+      "points": "0:24",
+      "goals": 136,
+      "goalsAgainst": 335,
+      "goalDifference": -199
+    }
+  ]
+}
